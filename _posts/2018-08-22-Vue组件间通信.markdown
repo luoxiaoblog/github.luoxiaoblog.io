@@ -1,0 +1,241 @@
+---
+layout: post
+title:  "Vue组件间通信"
+date:   "2018-08-22"
+categories: Vue
+excerpt_separator: <!--more-->
+---
+
+组件间通信即组件之间的数据传递和数据共享，按组件的父子关系可分为父传子、子传父、非父子之间传递数据。<!--more-->
+
+父组件向子组件传递数据一般使用```Prop```。
+
+子组件向父组件传递数据一般使用```$emit```。
+
+非父子组件传递数据可以使用```eventBus```或```Vuex```。
+
+在某些情况下使用localStorege、sessionStorage也是不错的选择。
+
+# 父组件向子组件传递数据
+> Prop 是你可以在组件上注册的一些自定义特性。当一个值传递给一个prop特性的时候，它就变成了那个组件实例的一个属性。
+
+<div class="code-wrapper">
+<div class="title">
+<span class="text">child.vue</span>
+</div>
+{% highlight vue %}
+<template>
+  <div class="child">
+    <h1>{{title}}</h1>
+  </div>
+</template>
+
+<script>
+export default {
+  name: 'Child',
+
+  props: {
+    title: {
+      type: String,
+      default: 'child'
+    }
+  }
+}
+</script>
+{% endhighlight %}
+</div>
+child组件h1标签的值我希望能动态传递进来，那么可以通过prop定义title特性，可设置校验类型和默认值。
+
+
+<div class="code-wrapper">
+<div class="title">
+<span class="text">parent.vue</span>
+</div>
+{% highlight vue %}
+<template>
+  <div class="parent">
+    <child></child>
+    <child title="aaa"></child>
+    <child :title="title"></child>
+    <a href="#" @click="title = 'parent';">click</a>
+  </div>
+</template>
+
+<script>
+import Child from './child'
+
+export default {
+  components: {
+    Child
+  },
+
+  data () {
+    return {
+      title: 'haha'
+    }
+  }
+}
+</script>
+{% endhighlight %}
+</div>
+父组件parent.vue中复用三次child组件，第一个child组件显示默认值，第二个child组件显示"aaa"，第三个child组件显示“哈哈”，点击click之后第三个child组件将显示“parent”
+
+
+# 子组件向父组件传递数据
+
+
+<div class="code-wrapper">
+<div class="title">
+<span class="text">child.vue</span>
+</div>
+{% highlight vue %}
+<template>
+  <div class="child">
+    <a href="#" @click="$emit('msg', 'haha');">click</a>
+  </div>
+</template>
+
+<script>
+export default {
+  name: 'Child'
+}
+</script>
+{% endhighlight %}
+</div>
+子组件希望点击click时向父元素传递数据，可以使用$emit(event, data)向父元素传递一个自定义事件。
+
+<div class="code-wrapper">
+<div class="title">
+<span class="text">parent.vue</span>
+</div>
+{% highlight vue %}
+<template>
+  <div class="parent">
+    <child @msg="handleMsgEvent"></child>
+  </div>
+</template>
+
+<script>
+import Child from './child'
+
+export default {
+  components: {
+    Child
+  },
+
+  methods: {
+    handleMsgEvent (msg) {
+      console.log(msg)
+    }
+  }
+}
+</script>
+{% endhighlight %}
+</div>
+在父组件中监听子组件中定义的事件就能子组件传递的数据，此时点击“click”将在浏览器开发工具控制台中输出“haha”。
+
+
+# 非父子组件通信
+
+非父子组件间通信主要有两种方式，EventBus和Vuex，一般项目简单的情况下推荐使用EventBus，否则使用Vuex。
+
+## eventBus
+
+Vue提供了实例方法$emit和$on，可自定义事件以及监听事件。eventBus即一个Vue实例，各个组件共用这个实例调用$emit和$on方法达到数据传递的目的。
+
+<div class="code-wrapper">
+<div class="title">
+<span class="text">parent.vue</span>
+</div>
+{% highlight vue %}
+<template>
+  <div class="parent">
+    <child></child>
+    <child2></child2>
+  </div>
+</template>
+
+<script>
+import Child from './child'
+import Child2 from './child2'
+
+export default {
+  components: {
+    Child,
+    Child2
+  }
+}
+</script>
+{% endhighlight %}
+</div>
+parent组件中有两个子组件
+
+<div class="code-wrapper">
+<div class="title">
+<span class="text">bus.js</span>
+</div>
+{% highlight vue %}
+import Vue from 'vue'
+
+export default new Vue()
+{% endhighlight %}
+</div>
+创建bus.js文件,export一个Vue实例。
+
+<div class="code-wrapper">
+<div class="title">
+<span class="text">child.vue</span>
+</div>
+{% highlight vue %}
+<template>
+  <div class="child">
+    <a href="#" @click="a">click</a>
+  </div>
+</template>
+
+<script>
+import Bus from './bus.js'
+
+export default {
+  name: 'Child',
+
+  methods: {
+    a () {
+      Bus.$emit('msg', 'a')
+    }
+  }
+}
+</script>
+{% endhighlight %}
+</div>
+child组件中import bus.js并通过它在click事件中传递出一个msg事件。
+
+<div class="code-wrapper">
+<div class="title">
+<span class="text">child2.vue</span>
+</div>
+{% highlight vue %}
+<template>
+  <div class="child2"></div>
+</template>
+
+<script>
+import Bus from './bus.js'
+
+export default {
+  name: 'Child2',
+
+  created () {
+    Bus.$on('msg', (val) => {
+      console.log(val)
+    })
+  }
+}
+</script>
+
+{% endhighlight %}
+</div>
+child2组件中也import bus.js并通过它在created钩子中监听msg事件。
+这样当点击child组件的click时，child2能接收到child传递的数据，在浏览器开发工具控制台中输出“a”。
+
+## Vuex
