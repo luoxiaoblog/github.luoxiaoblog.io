@@ -23,7 +23,7 @@ excerpt_separator: <!--more-->
 <div class="title">
 <span class="text">child.vue</span>
 </div>
-{% highlight vue %}
+{% highlight vue linenos %}
 <template>
   <div class="child">
     <h1>{{title}}</h1>
@@ -51,7 +51,7 @@ child组件h1标签的值我希望能动态传递进来，那么可以通过prop
 <div class="title">
 <span class="text">parent.vue</span>
 </div>
-{% highlight vue %}
+{% highlight vue linenos %}
 <template>
   <div class="parent">
     <child></child>
@@ -88,7 +88,7 @@ export default {
 <div class="title">
 <span class="text">child.vue</span>
 </div>
-{% highlight vue %}
+{% highlight vue linenos %}
 <template>
   <div class="child">
     <a href="#" @click="$emit('msg', 'haha');">click</a>
@@ -108,7 +108,7 @@ export default {
 <div class="title">
 <span class="text">parent.vue</span>
 </div>
-{% highlight vue %}
+{% highlight vue linenos %}
 <template>
   <div class="parent">
     <child @msg="handleMsgEvent"></child>
@@ -147,7 +147,7 @@ Vue提供了实例方法$emit和$on，可自定义事件以及监听事件。eve
 <div class="title">
 <span class="text">parent.vue</span>
 </div>
-{% highlight vue %}
+{% highlight vue linenos %}
 <template>
   <div class="parent">
     <child></child>
@@ -174,7 +174,7 @@ parent组件中有两个子组件
 <div class="title">
 <span class="text">bus.js</span>
 </div>
-{% highlight vue %}
+{% highlight vue linenos %}
 import Vue from 'vue'
 
 export default new Vue()
@@ -186,7 +186,7 @@ export default new Vue()
 <div class="title">
 <span class="text">child.vue</span>
 </div>
-{% highlight vue %}
+{% highlight vue linenos %}
 <template>
   <div class="child">
     <a href="#" @click="a">click</a>
@@ -214,7 +214,7 @@ child组件中import bus.js并通过它在click事件中传递出一个msg事件
 <div class="title">
 <span class="text">child2.vue</span>
 </div>
-{% highlight vue %}
+{% highlight vue linenos %}
 <template>
   <div class="child2"></div>
 </template>

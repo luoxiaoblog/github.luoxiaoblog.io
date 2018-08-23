@@ -67,7 +67,25 @@
 <span class="text">child.vue</span>
 </div>
 
-<figure class="highlight"><pre><code class="language-vue" data-lang="vue"><span class="nt">&lt;</span><span class="k">template</span><span class="nt">&gt;</span>
+<figure class="highlight"><pre><code class="language-vue" data-lang="vue"><table class="rouge-table"><tbody><tr><td class="gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+</pre></td><td class="code"><pre><span class="nt">&lt;</span><span class="k">template</span><span class="nt">&gt;</span>
   <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"child"</span><span class="nt">&gt;</span>
     <span class="nt">&lt;h1&gt;&lt;/h1&gt;</span>
   <span class="nt">&lt;/div&gt;</span>
@@ -84,7 +102,7 @@
     <span class="p">}</span>
   <span class="p">}</span>
 <span class="p">}</span>
-<span class="nt">&lt;/</span><span class="k">script</span><span class="nt">&gt;</span></code></pre></figure>
+<span class="nt">&lt;/</span><span class="k">script</span><span class="nt">&gt;</span></pre></td></tr></tbody></table></code></pre></figure>
 
 </div>
 <p>child组件h1标签的值我希望能动态传递进来，那么可以通过prop定义title特性，可设置校验类型和默认值。</p>
@@ -94,7 +112,31 @@
 <span class="text">parent.vue</span>
 </div>
 
-<figure class="highlight"><pre><code class="language-vue" data-lang="vue"><span class="nt">&lt;</span><span class="k">template</span><span class="nt">&gt;</span>
+<figure class="highlight"><pre><code class="language-vue" data-lang="vue"><table class="rouge-table"><tbody><tr><td class="gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+</pre></td><td class="code"><pre><span class="nt">&lt;</span><span class="k">template</span><span class="nt">&gt;</span>
   <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"parent"</span><span class="nt">&gt;</span>
     <span class="nt">&lt;child&gt;&lt;/child&gt;</span>
     <span class="nt">&lt;child</span> <span class="na">title=</span><span class="s">"aaa"</span><span class="nt">&gt;&lt;/child&gt;</span>
@@ -117,7 +159,7 @@
     <span class="p">}</span>
   <span class="p">}</span>
 <span class="p">}</span>
-<span class="nt">&lt;/</span><span class="k">script</span><span class="nt">&gt;</span></code></pre></figure>
+<span class="nt">&lt;/</span><span class="k">script</span><span class="nt">&gt;</span></pre></td></tr></tbody></table></code></pre></figure>
 
 </div>
 <p>父组件parent.vue中复用三次child组件，第一个child组件显示默认值，第二个child组件显示”aaa”，第三个child组件显示“哈哈”，点击click之后第三个child组件将显示“parent”</p>
@@ -129,7 +171,18 @@
 <span class="text">child.vue</span>
 </div>
 
-<figure class="highlight"><pre><code class="language-vue" data-lang="vue"><span class="nt">&lt;</span><span class="k">template</span><span class="nt">&gt;</span>
+<figure class="highlight"><pre><code class="language-vue" data-lang="vue"><table class="rouge-table"><tbody><tr><td class="gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+</pre></td><td class="code"><pre><span class="nt">&lt;</span><span class="k">template</span><span class="nt">&gt;</span>
   <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"child"</span><span class="nt">&gt;</span>
     <span class="nt">&lt;a</span> <span class="na">href=</span><span class="s">"#"</span> <span class="err">@</span><span class="na">click=</span><span class="s">"$emit('msg', 'haha');"</span><span class="nt">&gt;</span>click<span class="nt">&lt;/a&gt;</span>
   <span class="nt">&lt;/div&gt;</span>
@@ -139,7 +192,7 @@
 <span class="k">export</span> <span class="k">default</span> <span class="p">{</span>
   <span class="na">name</span><span class="p">:</span> <span class="s1">'Child'</span>
 <span class="p">}</span>
-<span class="nt">&lt;/</span><span class="k">script</span><span class="nt">&gt;</span></code></pre></figure>
+<span class="nt">&lt;/</span><span class="k">script</span><span class="nt">&gt;</span></pre></td></tr></tbody></table></code></pre></figure>
 
 </div>
 <p>子组件希望点击click时向父元素传递数据，可以使用$emit(event, data)向父元素传递一个自定义事件。</p>
@@ -149,7 +202,28 @@
 <span class="text">parent.vue</span>
 </div>
 
-<figure class="highlight"><pre><code class="language-vue" data-lang="vue"><span class="nt">&lt;</span><span class="k">template</span><span class="nt">&gt;</span>
+<figure class="highlight"><pre><code class="language-vue" data-lang="vue"><table class="rouge-table"><tbody><tr><td class="gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+</pre></td><td class="code"><pre><span class="nt">&lt;</span><span class="k">template</span><span class="nt">&gt;</span>
   <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"parent"</span><span class="nt">&gt;</span>
     <span class="nt">&lt;child</span> <span class="err">@</span><span class="na">msg=</span><span class="s">"handleMsgEvent"</span><span class="nt">&gt;&lt;/child&gt;</span>
   <span class="nt">&lt;/div&gt;</span>
@@ -169,7 +243,7 @@
     <span class="p">}</span>
   <span class="p">}</span>
 <span class="p">}</span>
-<span class="nt">&lt;/</span><span class="k">script</span><span class="nt">&gt;</span></code></pre></figure>
+<span class="nt">&lt;/</span><span class="k">script</span><span class="nt">&gt;</span></pre></td></tr></tbody></table></code></pre></figure>
 
 </div>
 <p>在父组件中监听子组件中定义的事件就能子组件传递的数据，此时点击“click”将在浏览器开发工具控制台中输出“haha”。</p>
@@ -187,7 +261,25 @@
 <span class="text">parent.vue</span>
 </div>
 
-<figure class="highlight"><pre><code class="language-vue" data-lang="vue"><span class="nt">&lt;</span><span class="k">template</span><span class="nt">&gt;</span>
+<figure class="highlight"><pre><code class="language-vue" data-lang="vue"><table class="rouge-table"><tbody><tr><td class="gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+</pre></td><td class="code"><pre><span class="nt">&lt;</span><span class="k">template</span><span class="nt">&gt;</span>
   <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"parent"</span><span class="nt">&gt;</span>
     <span class="nt">&lt;child&gt;&lt;/child&gt;</span>
     <span class="nt">&lt;child2&gt;&lt;/child2&gt;</span>
@@ -204,7 +296,7 @@
     <span class="nx">Child2</span>
   <span class="p">}</span>
 <span class="p">}</span>
-<span class="nt">&lt;/</span><span class="k">script</span><span class="nt">&gt;</span></code></pre></figure>
+<span class="nt">&lt;/</span><span class="k">script</span><span class="nt">&gt;</span></pre></td></tr></tbody></table></code></pre></figure>
 
 </div>
 <p>parent组件中有两个子组件</p>
@@ -214,9 +306,12 @@
 <span class="text">bus.js</span>
 </div>
 
-<figure class="highlight"><pre><code class="language-vue" data-lang="vue">import Vue from 'vue'
+<figure class="highlight"><pre><code class="language-vue" data-lang="vue"><table class="rouge-table"><tbody><tr><td class="gutter gl"><pre class="lineno">1
+2
+3
+</pre></td><td class="code"><pre>import Vue from 'vue'
 
-export default new Vue()</code></pre></figure>
+export default new Vue()</pre></td></tr></tbody></table></code></pre></figure>
 
 </div>
 <p>创建bus.js文件,export一个Vue实例。</p>
@@ -226,7 +321,26 @@ export default new Vue()</code></pre></figure>
 <span class="text">child.vue</span>
 </div>
 
-<figure class="highlight"><pre><code class="language-vue" data-lang="vue"><span class="nt">&lt;</span><span class="k">template</span><span class="nt">&gt;</span>
+<figure class="highlight"><pre><code class="language-vue" data-lang="vue"><table class="rouge-table"><tbody><tr><td class="gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+</pre></td><td class="code"><pre><span class="nt">&lt;</span><span class="k">template</span><span class="nt">&gt;</span>
   <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"child"</span><span class="nt">&gt;</span>
     <span class="nt">&lt;a</span> <span class="na">href=</span><span class="s">"#"</span> <span class="err">@</span><span class="na">click=</span><span class="s">"a"</span><span class="nt">&gt;</span>click<span class="nt">&lt;/a&gt;</span>
   <span class="nt">&lt;/div&gt;</span>
@@ -244,7 +358,7 @@ export default new Vue()</code></pre></figure>
     <span class="p">}</span>
   <span class="p">}</span>
 <span class="p">}</span>
-<span class="nt">&lt;/</span><span class="k">script</span><span class="nt">&gt;</span></code></pre></figure>
+<span class="nt">&lt;/</span><span class="k">script</span><span class="nt">&gt;</span></pre></td></tr></tbody></table></code></pre></figure>
 
 </div>
 <p>child组件中import bus.js并通过它在click事件中传递出一个msg事件。</p>
@@ -254,7 +368,24 @@ export default new Vue()</code></pre></figure>
 <span class="text">child2.vue</span>
 </div>
 
-<figure class="highlight"><pre><code class="language-vue" data-lang="vue"><span class="nt">&lt;</span><span class="k">template</span><span class="nt">&gt;</span>
+<figure class="highlight"><pre><code class="language-vue" data-lang="vue"><table class="rouge-table"><tbody><tr><td class="gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+</pre></td><td class="code"><pre><span class="nt">&lt;</span><span class="k">template</span><span class="nt">&gt;</span>
   <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"child2"</span><span class="nt">&gt;&lt;/div&gt;</span>
 <span class="nt">&lt;/</span><span class="k">template</span><span class="nt">&gt;</span>
 
@@ -270,7 +401,7 @@ export default new Vue()</code></pre></figure>
     <span class="p">})</span>
   <span class="p">}</span>
 <span class="p">}</span>
-<span class="nt">&lt;/</span><span class="k">script</span><span class="nt">&gt;</span></code></pre></figure>
+<span class="nt">&lt;/</span><span class="k">script</span><span class="nt">&gt;</span></pre></td></tr></tbody></table></code></pre></figure>
 
 </div>
 <p>child2组件中也import bus.js并通过它在created钩子中监听msg事件。
@@ -278,8 +409,16 @@ export default new Vue()</code></pre></figure>
 
 <h2 id="vuex">Vuex</h2>
 
-  </div><a class="u-url" href="/vue/Vue%E7%BB%84%E4%BB%B6%E9%97%B4%E9%80%9A%E4%BF%A1" hidden></a>
+  </div>
+  <div id="toc" class="toc"></div><a class="u-url" href="/vue/Vue%E7%BB%84%E4%BB%B6%E9%97%B4%E9%80%9A%E4%BF%A1" hidden></a>
 </article>
+<script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>  
+<script src="https://cdn.bootcss.com/toc/0.3.2/toc.js"></script>
+<script>
+  $(document).ready(function() {
+    $('#toc').toc({ selectors: "h1:not(.post-title),h2:not(.footer-heading),h3,h4"});
+});
+</script>
 
       </div>
     </main><footer class="site-footer h-card">

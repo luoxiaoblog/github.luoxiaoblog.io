@@ -114,8 +114,16 @@ date:   2015-11-17 16:16:01 -0600
 
 <p>细节和扩展内容请参考<a href="https://jekyllrb.com/docs/home/">Jekyll</a>、<a href="https://pages.github.com/">GitHub Pages</a>、<a href="https://git-scm.com/book/zh/v2">git</a></p>
 
-  </div><a class="u-url" href="/github/%E5%88%A9%E7%94%A8GitHub-Pages%E5%92%8CJekyll%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2" hidden></a>
+  </div>
+  <div id="toc" class="toc"></div><a class="u-url" href="/github/%E5%88%A9%E7%94%A8GitHub-Pages%E5%92%8CJekyll%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2" hidden></a>
 </article>
+<script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>  
+<script src="https://cdn.bootcss.com/toc/0.3.2/toc.js"></script>
+<script>
+  $(document).ready(function() {
+    $('#toc').toc({ selectors: "h1:not(.post-title),h2:not(.footer-heading),h3,h4"});
+});
+</script>
 
       </div>
     </main><footer class="site-footer h-card">
