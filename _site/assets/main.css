@@ -71,7 +71,21 @@ li > ol {
  * Headings
  */
 h1, h2, h3, h4, h5, h6 {
-  font-weight: 400; }
+  font-weight: 400;
+  -webkit-font-smoothing: antialiased;
+  clear: both;
+  color: rgba(0, 0, 0, 0.870588);
+  display: block;
+  font-family: Roboto, "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+  margin-left: 0px;
+  margin-right: 0px; }
+
+h1 {
+  font-size: 22px;
+  font-weight: 500;
+  height: 30px;
+  margin-bottom: 24px;
+  margin-top: 32px; }
 
 /**
  * Links
@@ -238,10 +252,9 @@ table {
   top: 0;
   left: 0;
   width: 100%;
-  border-top: 5px solid #424242;
-  border-bottom: 1px solid #e8e8e8;
   min-height: 37.3px;
-  background-color: #fff; }
+  background-color: #1976d2;
+  box-shadow: rgba(0, 0, 0, 0.298039) 0px 2px 5px 0px; }
 
 .site-title {
   font-size: 26px;
@@ -252,7 +265,7 @@ table {
   margin-bottom: 0;
   float: left; }
   .site-title, .site-title:visited {
-    color: #424242; }
+    color: #fff; }
 
 .site-nav {
   float: right;
@@ -262,7 +275,7 @@ table {
   .site-nav .menu-icon {
     display: none; }
   .site-nav .page-link {
-    color: rgba(0, 0, 0, 0.87);
+    color: #fff;
     line-height: 1.5; }
     .site-nav .page-link:not(:last-child) {
       margin-right: 20px; }
@@ -275,6 +288,8 @@ table {
       border: 1px solid #e8e8e8;
       border-radius: 5px;
       text-align: right; }
+      .site-nav .page-link {
+        color: rgba(0, 0, 0, 0.87); }
       .site-nav label[for="nav-trigger"] {
         display: block;
         float: right;
@@ -416,7 +431,7 @@ table {
     padding: 8px 0;
     margin: 15px 0 30px;
     border-bottom: 1px solid rgba(0, 0, 0, 0.1);
-    font-weight: 500;
+    font-weight: normal;
     line-height: 1.25;
     padding-bottom: 12px;
     font-size: 24px;
@@ -595,7 +610,7 @@ table {
     color: #099; }
 
 .code-wrapper .title {
-  background: #878590;
+  background: #1e88e5;
   line-height: 35px;
   padding: 0 20px;
   color: #fff;
