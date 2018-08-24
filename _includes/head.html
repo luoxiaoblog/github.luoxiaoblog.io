@@ -5,6 +5,16 @@
   {%- seo -%}
   <link rel="icon" href="{{ '/assets/favicon.ico' | absolute_url }}" type="image/x-icon" /> 
   <link rel="stylesheet" href="{{ "/assets/main.css" | relative_url }}">
+  <link rel="stylesheet" href="/assets/tabs.css">  
+  <script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>  
+  <script src="https://cdn.bootcss.com/toc/0.3.2/toc.js"></script>
+  <script>
+    $(document).ready(function() {
+      $('#toc').toc({ selectors: "h1:not(.post-title),h2:not(.footer-heading),h3,h4"});
+      $('.tab-group').tabify();
+  });
+  </script>
+  <script src="/assets/tabs.js"></script>
   {%- feed_meta -%}
   {%- if jekyll.environment == 'production' and site.google_analytics -%}
     {%- include google-analytics.html -%}

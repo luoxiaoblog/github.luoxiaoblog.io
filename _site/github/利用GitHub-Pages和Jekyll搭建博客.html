@@ -18,7 +18,17 @@
 {"description":"写博客可以记录和总结学习过程中的点点滴滴。拥有自己的博客是一件很酷的事，这里介绍通过Github Pages和Jekyll搭建个人博客。","@type":"BlogPosting","url":"http://localhost:4000/github/%E5%88%A9%E7%94%A8GitHub-Pages%E5%92%8CJekyll%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2","headline":"利用GitHub Pages和Jekyll搭建博客","dateModified":"2018-06-18T00:00:00+08:00","datePublished":"2018-06-18T00:00:00+08:00","mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:4000/github/%E5%88%A9%E7%94%A8GitHub-Pages%E5%92%8CJekyll%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2"},"@context":"http://schema.org"}</script>
 <!-- End Jekyll SEO tag -->
 <link rel="icon" href="http://localhost:4000/assets/favicon.ico" type="image/x-icon" /> 
-  <link rel="stylesheet" href="/assets/main.css"><link type="application/atom+xml" rel="alternate" href="http://localhost:4000/feed.xml" title="LuoXiao's blog" /></head>
+  <link rel="stylesheet" href="/assets/main.css">
+  <link rel="stylesheet" href="/assets/tabs.css">  
+  <script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>  
+  <script src="https://cdn.bootcss.com/toc/0.3.2/toc.js"></script>
+  <script>
+    $(document).ready(function() {
+      $('#toc').toc({ selectors: "h1:not(.post-title),h2:not(.footer-heading),h3,h4"});
+      $('.tab-group').tabify();
+  });
+  </script>
+  <script src="/assets/tabs.js"></script><link type="application/atom+xml" rel="alternate" href="http://localhost:4000/feed.xml" title="LuoXiao's blog" /></head>
 <body><header class="site-header" role="banner">
 
   <div class="wrapper"><a class="site-title" rel="author" href="/">LuoXiao&#39;s blog</a><nav class="site-nav">
@@ -118,13 +128,6 @@ date:   2015-11-17 16:16:01 -0600
   </div>
   <div id="toc" class="toc"></div><a class="u-url" href="/github/%E5%88%A9%E7%94%A8GitHub-Pages%E5%92%8CJekyll%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2" hidden></a>
 </article>
-<script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>  
-<script src="https://cdn.bootcss.com/toc/0.3.2/toc.js"></script>
-<script>
-  $(document).ready(function() {
-    $('#toc').toc({ selectors: "h1:not(.post-title),h2:not(.footer-heading),h3,h4"});
-});
-</script>
 
       </div>
     </main><footer class="site-footer h-card">

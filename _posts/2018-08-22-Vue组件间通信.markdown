@@ -251,3 +251,52 @@ child2组件中也import bus.js并通过它在created钩子中监听msg事件。
 <a id="vuex" class="anchor"></a>
 </p>
 ## Vuex
+
+<div class="tab-group-container ">
+  <div class="tab-group">
+    <section id="tab1" title="Long Tab Name">
+      {% highlight vue linenos %}
+<template>
+  <div class="child2"></div>
+</template>
+
+<script>
+import Bus from './bus.js'
+
+export default {
+  name: 'Child2',
+
+  created () {
+    Bus.$on('msg', (val) => {
+      console.log(val)
+    })
+  }
+}
+</script>
+
+{% endhighlight %}
+    </section>
+    <section id="tab2" title="Another Tab">
+            {% highlight vue linenos %}
+<template>
+  <div class="child2"></div>
+</template>
+
+<script>
+import Bus from './bus.js'
+
+export default {
+  name: 'Child2',
+
+  created () {
+    Bus.$on('msg', (val) => {
+      console.log(val)
+    })
+  }
+}
+</script>
+
+{% endhighlight %}
+    </section>
+  </div>
+</div>
