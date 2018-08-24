@@ -34,7 +34,8 @@
         <div class="trigger"><a class="page-link" href="/about/">关于我</a><a class="page-link" href="/other/">其他</a></div>
       </nav></div>
 </header>
-<main class="page-content" aria-label="Content">
+<div class="aaa">aaa</div>
+    <main class="page-content" aria-label="Content">
       <div class="wrapper">
         <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
 
@@ -55,8 +56,10 @@
 
 <p>非父子组件传递数据可以使用<code class="highlighter-rouge">eventBus</code>或<code class="highlighter-rouge">Vuex</code>。</p>
 
-<p>在某些情况下使用localStorege、sessionStorage也是不错的选择。</p>
-
+<p>在某些情况下使用<strong>localStorege</strong>、sessionStorage也是不错的选择。</p>
+<p style="margin: 0; padding: 0;">
+<a id="父组件向子组件传递数据" class="anchor"></a>
+</p>
 <h1 id="父组件向子组件传递数据">父组件向子组件传递数据</h1>
 <blockquote>
   <p>Prop 是你可以在组件上注册的一些自定义特性。当一个值传递给一个prop特性的时候，它就变成了那个组件实例的一个属性。</p>
@@ -164,6 +167,9 @@
 </div>
 <p>父组件parent.vue中复用三次child组件，第一个child组件显示默认值，第二个child组件显示”aaa”，第三个child组件显示“哈哈”，点击click之后第三个child组件将显示“parent”</p>
 
+<p style="margin: 0; padding: 0;">
+<a id="子组件向父组件传递数据" class="anchor"></a>
+</p>
 <h1 id="子组件向父组件传递数据">子组件向父组件传递数据</h1>
 
 <div class="code-wrapper">
@@ -248,10 +254,16 @@
 </div>
 <p>在父组件中监听子组件中定义的事件就能子组件传递的数据，此时点击“click”将在浏览器开发工具控制台中输出“haha”。</p>
 
+<p style="margin: 0; padding: 0;">
+<a id="非父子组件通信" class="anchor"></a>
+</p>
 <h1 id="非父子组件通信">非父子组件通信</h1>
 
 <p>非父子组件间通信主要有两种方式，EventBus和Vuex，一般项目简单的情况下推荐使用EventBus，否则使用Vuex。</p>
 
+<p style="margin: 0; padding: 0;">
+<a id="eventbus" class="anchor"></a>
+</p>
 <h2 id="eventbus">eventBus</h2>
 
 <p>Vue提供了实例方法$emit和$on，可自定义事件以及监听事件。eventBus即一个Vue实例，各个组件共用这个实例调用$emit和$on方法达到数据传递的目的。</p>
@@ -407,6 +419,9 @@ export default new Vue()</pre></td></tr></tbody></table></code></pre></figure>
 <p>child2组件中也import bus.js并通过它在created钩子中监听msg事件。
 这样当点击child组件的click时，child2能接收到child传递的数据，在浏览器开发工具控制台中输出“a”。</p>
 
+<p style="margin: 0; padding: 0;">
+<a id="vuex" class="anchor"></a>
+</p>
 <h2 id="vuex">Vuex</h2>
 
   </div>

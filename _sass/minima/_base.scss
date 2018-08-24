@@ -163,13 +163,19 @@ blockquote {
 /**
  * Code formatting
  */
+.highlight {
+  pre,
+  code {
+    background-color: #fafafa;
+  }
+}
 pre,
 code {
   @include relative-font-size(0.9375);
   // border: 1px solid $grey-color-light;
   border-radius: 3px;
   // background-color: #eef;
-  background-color: #fff;
+  background-color: #efeff1;
 }
 
 code {
@@ -262,10 +268,33 @@ pre {
     }
   
     li {
+      position: relative;
       padding: 6px 12px;
       // width: 260px;
     }
-  
+
+     li::before {
+      display: none;
+      content: '';
+      position: absolute;
+      top: 50%;
+      left: -3px;
+      width: 5px;
+      height: 5px;
+      margin-top: -2px;
+      border-radius: 50%;
+      background-color: #4d4c4c;
+    }
+
+    li:hover::before {
+      display: block;
+    }
+
+    li.toc-active::before {
+      display: block;
+      background-color: #1976d2;
+    }
+
     a {
       text-decoration: none;
       color: #4d4c4c;
@@ -276,7 +305,7 @@ pre {
       font-weight: 500;
     }
   
-    li a:hover {
+    li:hover a {
       color: #1e88e5;
     }
   }

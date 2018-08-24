@@ -13,7 +13,7 @@ dl, dd, ol, ul, figure {
 body {
   font: 400 16px/1.5 Roboto, "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
   color: rgba(0, 0, 0, 0.87);
-  background-color: #fafafa;
+  background-color: #fff;
   -webkit-text-size-adjust: 100%;
   -webkit-font-feature-settings: "kern" 1;
   -moz-font-feature-settings: "kern" 1;
@@ -119,11 +119,15 @@ blockquote {
 /**
  * Code formatting
  */
+.highlight pre,
+.highlight code {
+  background-color: #fafafa; }
+
 pre,
 code {
   font-size: 15px;
   border-radius: 3px;
-  background-color: #fff; }
+  background-color: #efeff1; }
 
 code {
   padding: 1px 5px; }
@@ -192,14 +196,31 @@ pre {
       border-left: 1px solid #c1bfbf;
       list-style-type: none; }
     .toc li {
+      position: relative;
       padding: 6px 12px; }
+    .toc li::before {
+      display: none;
+      content: '';
+      position: absolute;
+      top: 50%;
+      left: -3px;
+      width: 5px;
+      height: 5px;
+      margin-top: -2px;
+      border-radius: 50%;
+      background-color: #4d4c4c; }
+    .toc li:hover::before {
+      display: block; }
+    .toc li.toc-active::before {
+      display: block;
+      background-color: #1976d2; }
     .toc a {
       text-decoration: none;
       color: #4d4c4c; }
     .toc li.toc-active a {
       color: #1976d2;
       font-weight: 500; }
-    .toc li a:hover {
+    .toc li:hover a {
       color: #1e88e5; } }
 /**
  * Clearfix
@@ -464,12 +485,18 @@ table {
     line-height: 24px;
     letter-spacing: .3px;
     font-weight: 400; }
+  .post-content a.anchor {
+    display: block;
+    position: relative;
+    top: -64px;
+    visibility: hidden;
+    line-height: 0; }
 
 /**
  * Syntax highlighting styles
  */
 .highlight {
-  background: #fff;
+  background: #fafafa;
   border: 1px solid #e8e7e7;
   border-bottom-left-radius: 5px;
   border-bottom-right-radius: 5px; }

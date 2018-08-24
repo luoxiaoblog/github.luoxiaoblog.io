@@ -318,4 +318,12 @@
     letter-spacing: .3px;
     font-weight: 400;
   }
+
+  a.anchor {
+    display: block;
+    position: relative;
+    top: -64px;
+    visibility: hidden;
+    line-height: 0;
+  }
 }
