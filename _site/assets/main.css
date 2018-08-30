@@ -13,7 +13,7 @@ dl, dd, ol, ul, figure {
 body {
   font: 400 16px/1.5 Roboto, "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
   color: rgba(0, 0, 0, 0.87);
-  background-color: #fafafa;
+  background: #fff;
   -webkit-text-size-adjust: 100%;
   -webkit-font-feature-settings: "kern" 1;
   -moz-font-feature-settings: "kern" 1;
@@ -121,7 +121,7 @@ blockquote {
  */
 .highlight pre,
 .highlight code {
-  background-color: rgba(241, 241, 241, 0.2); }
+  background-color: #f6f8fa; }
 
 pre,
 code {

@@ -14,7 +14,7 @@ excerpt_separator: <!--more-->
 
 非父子组件传递数据可以使用```eventBus```或```Vuex```。
 
-在某些情况下使用**localStorege**、sessionStorage也是不错的选择。
+在某些情况下使用```localStorege```、```sessionStorage```也是不错的选择。
 <p style="margin: 0; padding: 0;">
 <a id="父组件向子组件传递数据" class="anchor"></a>
 </p>
@@ -25,14 +25,7 @@ excerpt_separator: <!--more-->
 <div class="title">
 <span class="text">child.vue</span>
 </div>
-{% highlight vue linenos %}
-<template>
-  <div class="child">
-    <h1>{{title}}</h1>
-  </div>
-</template>
-
-<script>
+{% highlight javascript linenos %}
 export default {
   name: 'Child',
 
@@ -43,7 +36,6 @@ export default {
     }
   }
 }
-</script>
 {% endhighlight %}
 </div>
 child组件h1标签的值我希望能动态传递进来，那么可以通过prop定义title特性，可设置校验类型和默认值。
@@ -59,7 +51,7 @@ child组件h1标签的值我希望能动态传递进来，那么可以通过prop
     <child></child>
     <child title="aaa"></child>
     <child :title="title"></child>
-    <a href="#" @click="title = 'parent';">click</a>
+    <a href="#" @click="title = '呵呵';">click</a>
   </div>
 </template>
 
@@ -80,7 +72,8 @@ export default {
 </script>
 {% endhighlight %}
 </div>
-父组件parent.vue中复用三次child组件，第一个child组件显示默认值，第二个child组件显示"aaa"，第三个child组件显示“哈哈”，点击click之后第三个child组件将显示“parent”
+父组件parent.vue中复用三次child组件，第一个child组件显示默认值，第二个child组件显示"aaa"，第三个child组件显示“哈哈”，点击click之后第三个child组件将显示“呵呵”。
+我们成功的将父组件中的数据传递给子组件。
 
 <p style="margin: 0; padding: 0;">
 <a id="子组件向父组件传递数据" class="anchor"></a>
@@ -92,79 +85,58 @@ export default {
 <div class="title">
 <span class="text">child.vue</span>
 </div>
-{% highlight vue linenos %}
-<template>
-  <div class="child">
-    <a href="#" @click="$emit('msg', 'haha');">click</a>
-  </div>
-</template>
-
-<script>
+{% highlight javascript linenos %}
 export default {
-  name: 'Child'
+  name: 'Child',
+  template: `<div class="child">
+              <a href="#" @click="$emit('msg', 'haha');">click</a>
+            </div>`
 }
-</script>
 {% endhighlight %}
 </div>
-子组件希望点击click时向父元素传递数据，可以使用$emit(event, data)向父元素传递一个自定义事件。
+子组件希望点击click时向父元素传递数据，可以使用$emit(event, data)向父元素传递一个自定义事件, 通过向事件回调函数传递参数实现数据的传递。
 
 <div class="code-wrapper">
 <div class="title">
 <span class="text">parent.vue</span>
 </div>
-{% highlight vue linenos %}
-<template>
-  <div class="parent">
-    <child @msg="handleMsgEvent"></child>
-  </div>
-</template>
-
-<script>
+{% highlight javascript linenos %}
 import Child from './child'
 
 export default {
   components: {
     Child
   },
-
+  template: `<div class="parent">
+              <child @msg="handleMsgEvent"></child>
+            </div>`,
   methods: {
     handleMsgEvent (msg) {
       console.log(msg)
     }
   }
 }
-</script>
 {% endhighlight %}
 </div>
-在父组件中监听子组件中定义的事件就能子组件传递的数据，此时点击“click”将在浏览器开发工具控制台中输出“haha”。
+在父组件中监听子组件中定义的事件就能拿到子组件传递的数据，此时点击“click”将在浏览器开发工具控制台中输出“haha”。
 
 <p style="margin: 0; padding: 0;">
 <a id="非父子组件通信" class="anchor"></a>
 </p>
 # 非父子组件通信
 
-非父子组件间通信主要有两种方式，EventBus和Vuex，一般项目简单的情况下推荐使用EventBus，否则使用Vuex。
+非父子组件间通信主要有两种方式，eventBus和Vuex，一般项目简单的情况下推荐使用eventBus，否则使用Vuex。
 
 <p style="margin: 0; padding: 0;">
 <a id="eventbus" class="anchor"></a>
 </p>
 ## eventBus
 
-Vue提供了实例方法$emit和$on，可自定义事件以及监听事件。eventBus即一个Vue实例，各个组件共用这个实例调用$emit和$on方法达到数据传递的目的。
-
-<div class="code-wrapper">
-<div class="title">
-<span class="text">parent.vue</span>
-</div>
-{% highlight vue linenos %}
-<template>
-  <div class="parent">
-    <child></child>
-    <child2></child2>
-  </div>
-</template>
-
-<script>
+Vue提供了实例方法$emit和$on，可自定义事件以及监听事件。eventBus即创建一个"空的"Vue实例，各个组件共用这个实例并调用$emit和$on方法达到数据传递的目的。
+<div class="tab-group-container ">
+  <div class="tab-group">
+    <section id="tab1" title="parent.vue">  
+      {% highlight javascript linenos %}
 import Child from './child'
 import Child2 from './child2'
 
@@ -173,130 +145,59 @@ export default {
     Child,
     Child2
   }
+  template:`<div class="parent">
+              <child></child>
+              <child2></child2>
+            </div>`
 }
-</script>
-{% endhighlight %}
-</div>
-parent组件中有两个子组件
-
-<div class="code-wrapper">
-<div class="title">
-<span class="text">bus.js</span>
-</div>
-{% highlight vue linenos %}
+      {% endhighlight %}  
+    </section>
+    <section id="tab2" title="bus.js">   
+{% highlight javascript linenos %}
 import Vue from 'vue'
 
 export default new Vue()
-{% endhighlight %}
-</div>
-创建bus.js文件,export一个Vue实例。
-
-<div class="code-wrapper">
-<div class="title">
-<span class="text">child.vue</span>
-</div>
+{% endhighlight %} 
+    </section>
+    <section id="tab3" title="child.vue"> 
 {% highlight vue linenos %}
-<template>
-  <div class="child">
-    <a href="#" @click="a">click</a>
-  </div>
-</template>
-
-<script>
 import Bus from './bus.js'
 
 export default {
   name: 'Child',
-
+  template: `<div class="child">
+              <a href="#" @click="a">click</a>
+            </div>`,
   methods: {
     a () {
       Bus.$emit('msg', 'a')
     }
   }
 }
-</script>
 {% endhighlight %}
-</div>
-child组件中import bus.js并通过它在click事件中传递出一个msg事件。
-
-<div class="code-wrapper">
-<div class="title">
-<span class="text">child2.vue</span>
-</div>
-{% highlight vue linenos %}
-<template>
-  <div class="child2"></div>
-</template>
-
-<script>
+    </section>
+    <section id="tab4" title="child2.vue">
+{% highlight javascript linenos %}
 import Bus from './bus.js'
 
 export default {
   name: 'Child2',
-
+  template: `<div class="child2"></div>`,
   created () {
     Bus.$on('msg', (val) => {
       console.log(val)
     })
   }
 }
-</script>
-
 {% endhighlight %}
+    </section>
+  </div>
 </div>
-child2组件中也import bus.js并通过它在created钩子中监听msg事件。
-这样当点击child组件的click时，child2能接收到child传递的数据，在浏览器开发工具控制台中输出“a”。
+
+parent组件中有子组件child和child2。bus.js中export一个Vue实例。child组件中import bus.js并通过它在click事件中传递出一个msg事件。child2组件中也import bus.js并通过它在created钩子中监听msg事件。这样当点击child组件的click时，child2能接收到child传递的数据，浏览器开发工具控制台中输出“a”。
 
 <p style="margin: 0; padding: 0;">
 <a id="vuex" class="anchor"></a>
 </p>
 ## Vuex
 
-<div class="tab-group-container ">
-  <div class="tab-group">
-    <section id="tab1" title="Long Tab Name">
-      {% highlight vue linenos %}
-<template>
-  <div class="child2"></div>
-</template>
-
-<script>
-import Bus from './bus.js'
-
-export default {
-  name: 'Child2',
-
-  created () {
-    Bus.$on('msg', (val) => {
-      console.log(val)
-    })
-  }
-}
-</script>
-
-{% endhighlight %}
-    </section>
-    <section id="tab2" title="Another Tab">
-            {% highlight vue linenos %}
-<template>
-  <div class="child2"></div>
-</template>
-
-<script>
-import Bus from './bus.js'
-
-export default {
-  name: 'Child2',
-
-  created () {
-    Bus.$on('msg', (val) => {
-      console.log(val)
-    })
-  }
-}
-</script>
-
-{% endhighlight %}
-    </section>
-  </div>
-</div>

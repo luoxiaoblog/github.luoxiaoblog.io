@@ -16,7 +16,8 @@ dl, dd, ol, ul, figure {
 body {
   font: $base-font-weight #{$base-font-size}/#{$base-line-height} $base-font-family;
   color: $text-color;
-  background-color: #fafafa;
+  // background-color: #fafafa;
+  background: #fff;
   -webkit-text-size-adjust: 100%;
   -webkit-font-feature-settings: "kern" 1;
      -moz-font-feature-settings: "kern" 1;
@@ -165,7 +166,7 @@ blockquote {
 .highlight {
   pre,
   code {
-    background-color: rgba(241,241,241,.2);;
+    background-color: #f6f8fa;
   }
 }
 pre,
