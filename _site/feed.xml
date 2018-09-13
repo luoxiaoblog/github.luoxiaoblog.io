@@ -1,17 +1,29 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.8.3">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2018-09-11T17:18:09+08:00</updated><id>http://localhost:4000/</id><title type="html">LuoXiao’s blog</title><subtitle>Write an awesome description for your new site here. You can edit this line in _config.yml. It will appear in your document head meta (for Google search results) and in your feed.xml site description.</subtitle><entry><title type="html">Web Developer Roadmap - 2018</title><link href="http://localhost:4000/front-end/Web-Developer-Roadmap-2018" rel="alternate" type="text/html" title="Web Developer Roadmap - 2018" /><published>2018-09-10T00:00:00+08:00</published><updated>2018-09-10T00:00:00+08:00</updated><id>http://localhost:4000/front-end/Web-Developer-Roadmap%20-%202018</id><content type="html" xml:base="http://localhost:4000/front-end/Web-Developer-Roadmap-2018">&lt;p&gt;The purpose of this roadmap is to give you an idea about the landscape and to guide you if you are confused about what to learn next and not to encourage you to pick what is hip and trendy. You should grow some understanding of why one tool would better suited for some cases than the other and remember hip and trendy never means best suited for the job &lt;!--more--&gt;&lt;/p&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.8.3">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2018-09-13T14:04:39+08:00</updated><id>http://localhost:4000/</id><title type="html">LuoXiao’s blog</title><subtitle>Write an awesome description for your new site here. You can edit this line in _config.yml. It will appear in your document head meta (for Google search results) and in your feed.xml site description.</subtitle><entry><title type="html">Web Developer Roadmap - 2018</title><link href="http://localhost:4000/front-end/Web-Developer-Roadmap-2018" rel="alternate" type="text/html" title="Web Developer Roadmap - 2018" /><published>2018-09-10T00:00:00+08:00</published><updated>2018-09-10T00:00:00+08:00</updated><id>http://localhost:4000/front-end/Web-Developer-Roadmap%20-%202018</id><content type="html" xml:base="http://localhost:4000/front-end/Web-Developer-Roadmap-2018">&lt;p&gt;The purpose of this roadmap is to give you an idea about the landscape and to guide you if you are confused about what to learn next and not to encourage you to pick what is hip and trendy. You should grow some understanding of why one tool would better suited for some cases than the other and remember hip and trendy never means best suited for the job &lt;!--more--&gt;&lt;/p&gt;
 
+&lt;p style=&quot;margin: 0; padding: 0;&quot;&gt;
+&lt;a id=&quot;introduction&quot; class=&quot;anchor&quot;&gt;&lt;/a&gt;
+&lt;/p&gt;
 &lt;h1 id=&quot;introduction&quot;&gt;Introduction&lt;/h1&gt;
 
 &lt;p&gt;&lt;img src=&quot;https://camo.githubusercontent.com/4511e3b4831b40f49c008418b5bb509d10efcbac/68747470733a2f2f692e696d6775722e636f6d2f4f5a554f5574492e706e67&quot; alt=&quot;image&quot; /&gt;&lt;/p&gt;
 
+&lt;p style=&quot;margin: 0; padding: 0;&quot;&gt;
+&lt;a id=&quot;frontend-roadmap&quot; class=&quot;anchor&quot;&gt;&lt;/a&gt;
+&lt;/p&gt;
 &lt;h1 id=&quot;frontend-roadmap&quot;&gt;Frontend Roadmap&lt;/h1&gt;
 
 &lt;p&gt;&lt;img src=&quot;https://raw.githubusercontent.com/kamranahmedse/developer-roadmap/master/images/frontend-v2.png&quot; alt=&quot;image&quot; /&gt;&lt;/p&gt;
 
+&lt;p style=&quot;margin: 0; padding: 0;&quot;&gt;
+&lt;a id=&quot;back-end-roadmap&quot; class=&quot;anchor&quot;&gt;&lt;/a&gt;
+&lt;/p&gt;
 &lt;h1 id=&quot;back-end-roadmap&quot;&gt;Back-end Roadmap&lt;/h1&gt;
 
 &lt;p&gt;&lt;img src=&quot;https://raw.githubusercontent.com/kamranahmedse/developer-roadmap/master/images/backend.png&quot; alt=&quot;image&quot; /&gt;&lt;/p&gt;
 
+&lt;p style=&quot;margin: 0; padding: 0;&quot;&gt;
+&lt;a id=&quot;devops-roadmap&quot; class=&quot;anchor&quot;&gt;&lt;/a&gt;
+&lt;/p&gt;
 &lt;h1 id=&quot;devops-roadmap&quot;&gt;DevOps Roadmap&lt;/h1&gt;
 
 &lt;p&gt;&lt;img src=&quot;https://raw.githubusercontent.com/kamranahmedse/developer-roadmap/master/images/devops.png&quot; alt=&quot;image&quot; /&gt;&lt;/p&gt;</content><author><name></name></author><summary type="html">The purpose of this roadmap is to give you an idea about the landscape and to guide you if you are confused about what to learn next and not to encourage you to pick what is hip and trendy. You should grow some understanding of why one tool would better suited for some cases than the other and remember hip and trendy never means best suited for the job</summary></entry><entry><title type="html">Vue组件间通信</title><link href="http://localhost:4000/vue/Vue%E7%BB%84%E4%BB%B6%E9%97%B4%E9%80%9A%E4%BF%A1" rel="alternate" type="text/html" title="Vue组件间通信" /><published>2018-08-22T00:00:00+08:00</published><updated>2018-08-22T00:00:00+08:00</updated><id>http://localhost:4000/vue/Vue%E7%BB%84%E4%BB%B6%E9%97%B4%E9%80%9A%E4%BF%A1</id><content type="html" xml:base="http://localhost:4000/vue/Vue%E7%BB%84%E4%BB%B6%E9%97%B4%E9%80%9A%E4%BF%A1">&lt;p&gt;组件间通信即组件之间的数据传递和数据共享，按组件的父子关系可分为父传子、子传父、非父子之间传递数据。&lt;!--more--&gt;&lt;/p&gt;
